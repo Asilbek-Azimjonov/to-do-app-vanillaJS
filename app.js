@@ -1,4 +1,4 @@
-const all = [
+const all = JSON.parse(localStorage.getItem("all")) || [
   {
     id: 1,
     completed: true,
@@ -7,7 +7,7 @@ const all = [
   {
     id: 2,
     completed: false,
-    text: "Do mornign exercise",
+    text: "Do morning exercise",
   },
   {
     id: 3,
@@ -51,9 +51,52 @@ const all = [
   },
 ];
 
+localStorage.setItem("all", JSON.stringify(all));
+const savedAll = JSON.parse(localStorage.getItem("all"));
+
 const items = document.querySelector(".items");
 const addBtn = document.querySelector(".addBtn");
 const input = document.querySelector("#input");
+
+// tab keeping
+
+const allTasksTab = document.querySelector(".all");
+const activeItemsTab = document.querySelector(".active");
+const completedItemsTab = document.querySelector(".completed-items");
+
+// Save the last clicked tab
+function setActiveTab(tabName) {
+  localStorage.setItem("activeTab", tabName);
+}
+
+// Event listeners for tabs
+allTasksTab.addEventListener("click", () => {
+  setActiveTab("all");
+  displayAllTasks();
+});
+
+activeItemsTab.addEventListener("click", () => {
+  setActiveTab("active");
+  displayActiveTasks();
+});
+
+completedItemsTab.addEventListener("click", () => {
+  setActiveTab("completed");
+  displayCompletedTasks();
+});
+
+// ✅ Restore last active tab on page load
+window.addEventListener("load", () => {
+  const lastTab = localStorage.getItem("activeTab") || "all";
+
+  if (lastTab === "active") {
+    displayActiveTasks();
+  } else if (lastTab === "completed") {
+    displayCompletedTasks();
+  } else {
+    displayAllTasks(); // Default to "All"
+  }
+});
 
 // displaying all tasks done ✅
 function displayAllTasks() {
@@ -81,11 +124,22 @@ function displayAllTasks() {
     items.appendChild(li);
     if (item.completed) {
       li.classList.add("completed");
+      localStorage.setItem("all", JSON.stringify(all));
     }
 
     checkbox.addEventListener("change", () => {
       item.completed = checkbox.checked;
       li.classList.toggle("completed", item.completed);
+
+      localStorage.setItem("all", JSON.stringify(all));
+
+      if (document.querySelector(".active.now")) {
+        displayActiveTasks();
+      } else if (document.querySelector(".completed-items.now")) {
+        displayCompletedTasks();
+      } else {
+        displayAllTasks();
+      }
     });
   });
 }
@@ -93,7 +147,7 @@ displayAllTasks();
 
 const allTasks = document.querySelector(".all");
 allTasks.addEventListener("click", displayAllTasks);
-// displaying active tasks done ✅
+// displaying active tasks
 function displayActiveTasks() {
   const activeTasks = all.filter((task) => !task.completed);
   items.innerHTML = "";
@@ -125,6 +179,16 @@ function displayActiveTasks() {
     checkbox.addEventListener("change", () => {
       item.completed = checkbox.checked;
       li.classList.toggle("completed", item.completed);
+
+      localStorage.setItem("all", JSON.stringify(all));
+
+      if (document.querySelector(".active.now")) {
+        setTimeout(displayActiveTasks, 700);
+      } else if (document.querySelector(".completed-items.now")) {
+        displayCompletedTasks();
+      } else {
+        displayAllTasks();
+      }
     });
   });
 }
@@ -158,11 +222,22 @@ function displayCompletedTasks() {
     items.appendChild(li);
     if (item.completed) {
       li.classList.add("completed");
+      localStorage.setItem("all", JSON.stringify(savedAll));
     }
 
     checkbox.addEventListener("change", () => {
       item.completed = checkbox.checked;
       li.classList.toggle("completed", item.completed);
+
+      localStorage.setItem("all", JSON.stringify(all));
+
+      if (document.querySelector(".active.now")) {
+        displayActiveTasks();
+      } else if (document.querySelector(".completed-items.now")) {
+        displayCompletedTasks();
+      } else {
+        displayAllTasks();
+      }
     });
   });
 }
@@ -170,7 +245,7 @@ function displayCompletedTasks() {
 const completedItems = document.querySelector(".completed-items");
 completedItems.addEventListener("click", displayCompletedTasks);
 
-// adding an item to all array done ✅
+// adding an item to all array
 function addItem() {
   let inputValue = input.value.trim();
   if (inputValue === "") return alert("Please enter a task");
@@ -184,19 +259,35 @@ function addItem() {
   input.value = "";
 
   all.push(item);
-
+  localStorage.setItem("all", JSON.stringify(all));
   displayAllTasks();
-  displayActiveTasks();
 }
 
-// toggling the now class in nav bar
 const navItems = document.querySelectorAll("nav div");
+
+// Function to set active tab in localStorage
+function setActiveTab(tabName) {
+  localStorage.setItem("activeTab", tabName);
+}
+
+// Event listener for clicking on nav items
 navItems.forEach((item) => {
   item.addEventListener("click", function () {
     navItems.forEach((i) => i.classList.remove("now"));
-
     this.classList.add("now");
+    setActiveTab(this.dataset.tab);
   });
+});
+
+// ✅ Restore last active tab on page load
+window.addEventListener("load", () => {
+  const lastTab = localStorage.getItem("activeTab") || "all"; // Default to "all"
+  const activeNavItem = document.querySelector(`[data-tab="${lastTab}"]`);
+
+  if (activeNavItem) {
+    navItems.forEach((i) => i.classList.remove("now"));
+    activeNavItem.classList.add("now");
+  }
 });
 
 addBtn.addEventListener("click", addItem);
@@ -209,7 +300,22 @@ input.addEventListener("keydown", function (e) {
 
 items.addEventListener("click", function (e) {
   if (e.target.classList.contains("close")) {
-    e.target.parentElement.remove();
-    placeholder();
+    const li = e.target.parentElement;
+    const taskText = li.querySelector(".task-text").innerText;
+
+    const taskIndex = all.findIndex((task) => task.text === taskText);
+
+    if (taskIndex !== -1) {
+      all.splice(taskIndex, 1);
+      localStorage.setItem("all", JSON.stringify(all));
+
+      if (document.querySelector(".active.now")) {
+        displayActiveTasks();
+      } else if (document.querySelector(".completed-items.now")) {
+        displayCompletedTasks();
+      } else {
+        displayAllTasks();
+      }
+    }
   }
 });

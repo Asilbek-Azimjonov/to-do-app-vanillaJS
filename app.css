@@ -21,6 +21,7 @@ header {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-family: "Playfair Display", serif;
+  overflow-x: hidden;
 }
 
 /* Commented out because the border line was not growning as the list items were added */
@@ -223,79 +224,6 @@ nav div:hover {
   color: black;
 }
 
-@media (max-width: 412px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 412px;
-    border: none;
-  }
-  header {
-    width: 24rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 24rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 18rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 22.5rem;
-    height: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-/*  DONE ✅ */
 @media (max-width: 414px) {
   body {
     overflow-x: hidden;
@@ -368,13 +296,186 @@ nav div:hover {
     }
   }
 }
+/*  DONE ✅ */
+@media (max-width: 412px) {
+  body {
+    overflow-x: hidden;
+  }
+  .main-container {
+    margin-top: -2rem;
+    max-width: 412px;
+    border: none;
+  }
+  header {
+    width: 24rem;
+    margin-top: 0;
+  }
+  .main {
+    width: 24rem;
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  nav div {
+    margin-top: -0.5rem;
+  }
+  #input {
+    width: 18rem;
+    margin-top: 0.4rem;
+    position: absolute;
+    left: 1.3rem;
+
+    height: 2.4rem;
+  }
+  .addBtn {
+    position: absolute;
+    top: 0.4rem;
+    right: -3.5rem;
+    height: 2.4rem;
+  }
+
+  .item {
+    position: relative;
+    list-style: none;
+    font-size: 1rem;
+
+    width: 22.5rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0.7rem;
+    margin-left: -1.2rem;
+
+    /* margin-top: 1rem; */
+
+    background-color: #38b000;
+    border-radius: 5px;
+    font-weight: 500;
+
+    color: rgb(0, 0, 0);
+  }
+  .item:first-child {
+    margin-top: 3rem;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.8;
+    background-color: #92ef35;
+
+    .close {
+      padding-bottom: 3px;
+    }
+  }
+}
+
+/* DONE ✅ */
+@media (max-width: 390px) {
+  body {
+    overflow-x: hidden;
+  }
+  .main-container {
+    margin-top: -2rem;
+    max-width: 390px;
+  }
+  header {
+    width: 25rem;
+    margin-top: 0;
+  }
+  .main {
+    width: 23rem;
+    position: relative;
+    padding-top: 0.5rem;
+  }
+  #input {
+    width: 17rem;
+  }
+  .item {
+    width: 21.5rem;
+  }
+}
 
 @media (max-width: 380px) {
   .main-container {
     margin-top: -2rem;
+    max-width: 380px;
   }
   header {
     width: 26rem;
+    margin-top: 0;
+  }
+  .main {
+    width: 22.5rem;
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  nav div {
+    margin-top: -0.5rem;
+  }
+  #input {
+    width: 16.5rem;
+    margin-top: 0.4rem;
+    position: absolute;
+    left: 1.3rem;
+
+    height: 2.4rem;
+  }
+  .addBtn {
+    position: absolute;
+    top: 0.4rem;
+    right: -3.5rem;
+    height: 2.4rem;
+  }
+
+  .item {
+    position: relative;
+    list-style: none;
+    font-size: 1rem;
+
+    width: 21rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0.7rem;
+    margin-left: -1.2rem;
+
+    /* margin-top: 1rem; */
+
+    background-color: #38b000;
+    border-radius: 5px;
+    font-weight: 500;
+
+    color: rgb(0, 0, 0);
+  }
+  .item:first-child {
+    margin-top: 3rem;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.8;
+    background-color: #92ef35;
+
+    .close {
+      padding-bottom: 3px;
+    }
+  }
+}
+
+/* DONE ✅  */
+@media (max-width: 375px) {
+  body {
+    overflow-x: hidden;
+  }
+  .main-container {
+    margin-top: -2rem;
+    max-width: 375px;
+  }
+  header {
+    width: 23.5rem;
     margin-top: 0;
   }
   .main {
@@ -446,11 +547,11 @@ nav div:hover {
     max-width: 360px;
   }
   header {
-    width: 20rem;
+    width: 22.5rem;
     margin-top: 0;
   }
   .main {
-    width: 20rem;
+    width: 21.5rem;
     position: relative;
     padding-top: 0.5rem;
   }
@@ -509,79 +610,6 @@ nav div:hover {
   }
 }
 
-/* DONE ✅  */
-@media (max-width: 375px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 375px;
-  }
-  header {
-    width: 23.8rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 22.5rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 16.5rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 21rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-
 @media (max-width: 344px) {
   .main-container {
     margin-top: -2rem;
@@ -621,6 +649,79 @@ nav div:hover {
 
     width: 19rem;
     height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0.7rem;
+    margin-left: -1.2rem;
+
+    /* margin-top: 1rem; */
+
+    background-color: #38b000;
+    border-radius: 5px;
+    font-weight: 500;
+
+    color: rgb(0, 0, 0);
+  }
+  .item:first-child {
+    margin-top: 3rem;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.8;
+    background-color: #92ef35;
+
+    .close {
+      padding-bottom: 3px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  body {
+    overflow-x: hidden;
+  }
+  .main-container {
+    margin-top: -2rem;
+    max-width: 540px;
+    border: none;
+  }
+  header {
+    width: 33.8rem;
+    margin-top: 0;
+  }
+  .main {
+    width: 24rem;
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  nav div {
+    margin-top: -0.5rem;
+  }
+  #input {
+    width: 18rem;
+    margin-top: 0.4rem;
+    position: absolute;
+    left: 1.3rem;
+
+    height: 2.4rem;
+  }
+  .addBtn {
+    position: absolute;
+    top: 0.4rem;
+    right: -3.5rem;
+    height: 2.4rem;
+  }
+
+  .item {
+    position: relative;
+    list-style: none;
+    font-size: 1rem;
+
+    width: 22.5rem;
+    height: 1.8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
