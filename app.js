@@ -2,32 +2,60 @@ const all = [
   {
     id: 1,
     completed: true,
-    text: "This is a task",
+    text: "Get up earlier",
   },
   {
     id: 2,
     completed: false,
-    text: "This is another task",
+    text: "Do mornign exercise",
   },
   {
     id: 3,
     completed: false,
-    text: "This is yet another task",
+    text: "Eat fruits or vegetables",
   },
   {
     id: 4,
     completed: true,
-    text: "This is yet another task 2",
+    text: "Reading book for 20 minutes",
   },
   {
     id: 5,
     completed: false,
-    text: "This is yet another task 3",
+    text: "Get to the deep work!",
+  },
+  {
+    id: 6,
+    completed: false,
+    text: "Have lunch, eat less",
+  },
+  {
+    id: 7,
+    completed: false,
+    text: "Go for a walk or gym",
+  },
+  {
+    id: 8,
+    completed: false,
+    text: "Start deep work again",
+  },
+  {
+    id: 9,
+    completed: false,
+    text: "Have dinner",
+  },
+  {
+    id: 10,
+    completed: false,
+    text: "Go to bed earlier",
   },
 ];
 
 const items = document.querySelector(".items");
+const addBtn = document.querySelector(".addBtn");
+const input = document.querySelector("#input");
 
+// displaying all tasks done ✅
 function displayAllTasks() {
   items.innerHTML = "";
   all.forEach((item) => {
@@ -61,12 +89,11 @@ function displayAllTasks() {
     });
   });
 }
-
-const addBtn = document.querySelector(".addBtn");
-const input = document.querySelector("#input");
-
 displayAllTasks();
 
+const allTasks = document.querySelector(".all");
+allTasks.addEventListener("click", displayAllTasks);
+// displaying active tasks done ✅
 function displayActiveTasks() {
   const activeTasks = all.filter((task) => !task.completed);
   items.innerHTML = "";
@@ -104,12 +131,46 @@ function displayActiveTasks() {
 
 const activeItems = document.querySelector(".active");
 activeItems.addEventListener("click", displayActiveTasks);
-// const placeholderText = document.getElementById('placeholder-text');
 
-// const checkBox = document.querySelector('.checkbox');
-// const taskText = document.querySelector('.task-text');
+function displayCompletedTasks() {
+  items.innerHTML = "";
+  const completedTasks = all.filter((task) => task.completed);
+  completedTasks.forEach((item) => {
+    const li = document.createElement("li");
+    li.classList.add("item");
 
-// adding an item to all array
+    const span = document.createElement("span");
+    span.classList.add("close");
+    span.innerHTML = "&times;";
+    li.appendChild(span);
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = item.completed;
+    checkbox.classList.add("checkbox");
+
+    const text = document.createElement("span");
+    text.classList.add("task-text");
+    text.innerText = item.text;
+
+    li.appendChild(checkbox);
+    li.appendChild(text);
+    items.appendChild(li);
+    if (item.completed) {
+      li.classList.add("completed");
+    }
+
+    checkbox.addEventListener("change", () => {
+      item.completed = checkbox.checked;
+      li.classList.toggle("completed", item.completed);
+    });
+  });
+}
+
+const completedItems = document.querySelector(".completed-items");
+completedItems.addEventListener("click", displayCompletedTasks);
+
+// adding an item to all array done ✅
 function addItem() {
   let inputValue = input.value.trim();
   if (inputValue === "") return alert("Please enter a task");
@@ -125,6 +186,7 @@ function addItem() {
   all.push(item);
 
   displayAllTasks();
+  displayActiveTasks();
 }
 
 // toggling the now class in nav bar
@@ -136,26 +198,6 @@ navItems.forEach((item) => {
     this.classList.add("now");
   });
 });
-// const li = document.createElement('li');
-// li.classList.add('item');
-// li.innerText = all[0].text;
-
-// const span = document.createElement('span');
-// span.classList.add('close');
-// span.innerHTML = '&times;';
-// li.appendChild(span);
-
-// // <span class="checkbox">&#10004;</span>
-// const checkbox = document.createElement('span');
-// checkbox.classList.add('checkbox');
-// checkbox.innerHTML = '&#10004;';
-// li.appendChild(checkbox);
-
-// items.appendChild(li);
-// input.value = '';
-
-// placeholderText.style.display = 'none';
-// // placeholder()
 
 addBtn.addEventListener("click", addItem);
 
@@ -171,15 +213,3 @@ items.addEventListener("click", function (e) {
     placeholder();
   }
 });
-
-// function placeholder() {
-//     placeholderText.style.display = items.children.length === 0 ? 'block' : 'none';
-// }
-
-// placeholder();
-
-// items.addEventListener('click', function (e) {
-//     if (e.target.classList.contains('checkbox')) {
-//         e.target.parentElement.classList.toggle('completed');
-//     }
-// });
