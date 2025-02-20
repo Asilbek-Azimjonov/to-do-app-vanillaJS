@@ -48,6 +48,10 @@ header::after {
   border-left: 1px solid black;
   width: 45.099rem;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading {
@@ -67,6 +71,22 @@ header::after {
   margin-bottom: 2rem;
 }
 
+nav {
+  display: flex;
+  margin-bottom: 1rem;
+}
+nav div {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+nav div:hover {
+  background-color: #f4e3ac;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -102,13 +122,14 @@ header::after {
   position: absolute;
   top: 1rem;
   cursor: pointer;
-  background-color: rgb(245, 193, 126);
+  background-color: #edce6a;
 
   border: none;
   border-radius: 5px;
 }
 
 .item {
+  position: relative;
   list-style: none;
   font-size: 1.2rem;
 
@@ -122,8 +143,11 @@ header::after {
 
   margin-top: 1rem;
 
-  background-color: #91cc5a;
+  background-color: #38b000;
   border-radius: 5px;
+  font-weight: 500;
+
+  color: rgb(0, 0, 0);
 }
 
 #placeholder-text {
@@ -164,4 +188,35 @@ header::after {
   padding-right: 7px;
   font-size: 1.1rem;
   font-weight: bold;
+
+  position: absolute;
+  right: 1rem;
+}
+
+/* completed items styling */
+
+.task-text {
+  display: inline;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.8;
+  background-color: #73e006;
+}
+
+.now {
+  background-color: #edce6a;
+}
+
+.checkbox {
+  cursor: pointer;
+  position: absolute;
+  right: 3.5rem;
+  border: 1px solid black;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }
