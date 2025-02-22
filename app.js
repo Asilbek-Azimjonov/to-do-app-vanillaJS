@@ -52,7 +52,8 @@ const all = JSON.parse(localStorage.getItem("all")) || [
 ];
 
 localStorage.setItem("all", JSON.stringify(all));
-const savedAll = JSON.parse(localStorage.getItem("all"));
+
+// const savedAll = JSON.parse(localStorage.getItem("all"));
 
 const items = document.querySelector(".items");
 const addBtn = document.querySelector(".addBtn");
@@ -63,10 +64,23 @@ const input = document.querySelector("#input");
 const allTasksTab = document.querySelector(".all");
 const activeItemsTab = document.querySelector(".active");
 const completedItemsTab = document.querySelector(".completed-items");
+const navItems = document.querySelectorAll("nav div");
 
-// Save the last clicked tab
+// Redundant code
+// function setActiveTab(tabName) {
+//   localStorage.setItem("activeTab", tabName);
+// }
+
 function setActiveTab(tabName) {
   localStorage.setItem("activeTab", tabName);
+
+  navItems.forEach((item) => {
+    if (item.classList.contains(tabName)) {
+      item.classList.add("now");
+    } else {
+      item.classList.remove("now");
+    }
+  });
 }
 
 // Event listeners for tabs
@@ -81,7 +95,7 @@ activeItemsTab.addEventListener("click", () => {
 });
 
 completedItemsTab.addEventListener("click", () => {
-  setActiveTab("completed");
+  setActiveTab("completed-items");
   displayCompletedTasks();
 });
 
@@ -91,10 +105,18 @@ window.addEventListener("load", () => {
 
   if (lastTab === "active") {
     displayActiveTasks();
-  } else if (lastTab === "completed") {
+  } else if (lastTab === "completed-items") {
     displayCompletedTasks();
   } else {
-    displayAllTasks(); // Default to "All"
+    displayAllTasks();
+  }
+
+  if (lastTab === "all") {
+    allTasksTab.classList.add("now");
+  } else if (lastTab === "active") {
+    activeItemsTab.classList.add("now");
+  } else if (lastTab === "completed-items") {
+    completedItemsTab.classList.add("now");
   }
 });
 
@@ -200,7 +222,8 @@ activeItems.addEventListener("click", displayActiveTasks);
 
 function displayCompletedTasks() {
   items.innerHTML = "";
-  const completedTasks = all.filter((task) => task.completed);
+  const savedAll = JSON.parse(localStorage.getItem("all"));
+  const completedTasks = savedAll.filter((task) => task.completed);
   completedTasks.forEach((item) => {
     const li = document.createElement("li");
     li.classList.add("item");
@@ -266,21 +289,19 @@ function addItem() {
   displayAllTasks();
 }
 
-const navItems = document.querySelectorAll("nav div");
-
 // Function to set active tab in localStorage
-function setActiveTab(tabName) {
-  localStorage.setItem("activeTab", tabName);
-}
+// function setActiveTab(tabName) {
+//   localStorage.setItem("activeTab", tabName);
+// }
 
-// Event listener for clicking on nav items
-navItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    navItems.forEach((i) => i.classList.remove("now"));
-    this.classList.add("now");
-    setActiveTab(this.dataset.tab);
-  });
-});
+// // Event listener for clicking on nav items
+// navItems.forEach((item) => {
+//   item.addEventListener("click", function () {
+//     navItems.forEach((i) => i.classList.remove("now"));
+//     this.classList.add("now");
+//     setActiveTab(this.dataset.tab);
+//   });
+// });
 
 // ✅ Restore last active tab on page load
 window.addEventListener("load", () => {

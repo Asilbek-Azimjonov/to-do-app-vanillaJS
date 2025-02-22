@@ -169,6 +169,12 @@ nav div:hover {
   flex-direction: column;
 }
 
+button:focus,
+input:focus,
+nav div:focus {
+  outline: none !important;
+}
+
 .close {
   background-color: red;
   color: white;
