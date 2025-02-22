@@ -114,6 +114,7 @@ function displayAllTasks() {
     checkbox.type = "checkbox";
     checkbox.checked = item.completed;
     checkbox.classList.add("checkbox");
+    checkbox.name = "taskCheckbox";
 
     const text = document.createElement("span");
     text.classList.add("task-text");
@@ -164,6 +165,7 @@ function displayActiveTasks() {
     checkbox.type = "checkbox";
     checkbox.checked = item.completed;
     checkbox.classList.add("checkbox");
+    checkbox.name = "taskCheckbox";
 
     const text = document.createElement("span");
     text.classList.add("task-text");
@@ -212,6 +214,7 @@ function displayCompletedTasks() {
     checkbox.type = "checkbox";
     checkbox.checked = item.completed;
     checkbox.classList.add("checkbox");
+    checkbox.name = "taskCheckbox";
 
     const text = document.createElement("span");
     text.classList.add("task-text");
@@ -317,5 +320,16 @@ items.addEventListener("click", function (e) {
         displayAllTasks();
       }
     }
+  }
+});
+
+// max char
+// const input = document.getElementById("input");
+
+input.addEventListener("input", function () {
+  const maxLength = 30;
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
+    alert("Maximum 30 characters allowed!");
   }
 });

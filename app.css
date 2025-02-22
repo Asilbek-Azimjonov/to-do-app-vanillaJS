@@ -2,54 +2,33 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  text-align: center;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  text-align: center;
   align-items: center;
-  padding-top: 0;
-  margin-top: 0;
+  min-height: 100vh;
 }
 
 header {
-  width: 45rem;
-  position: relative;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   font-family: "Playfair Display", serif;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  position: relative;
   overflow-x: hidden;
+  width: 100%;
 }
-
-/* Commented out because the border line was not growning as the list items were added */
-/* header::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 1px;
-  min-height: 176vw;
-  background-color: black;
-}
-header::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 1px;
-  min-height: 176vw;
-  background-color: black;
-} */
 
 .main-container {
   border-right: 1px solid black;
   border-left: 1px solid black;
-  width: 45.099rem;
+  width: 100%;
+  max-width: 45rem;
+  height: 100%;
   min-height: 100vh;
 
   display: flex;
@@ -58,15 +37,33 @@ header::after {
 }
 
 .heading {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   background-color: #edce6a;
   font-style: italic;
+  position: relative;
 }
+
+.menu-icon {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: black;
+}
+.fa-bars {
+  height: 2rem;
+  width: 2rem;
+  z-index: 999;
+}
+
+/*  */
 
 .main {
   border: 1px solid black;
-  width: 40rem;
+  width: 90%;
+  max-width: 40rem;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 5px;
@@ -90,67 +87,63 @@ nav div {
 nav div:hover {
   background-color: #f4e3ac;
 }
+
 .container {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-}
-
-.add-container {
-  position: relative;
-  margin-right: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  align-items: baseline;
 }
 
 #input {
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
   margin-top: 1rem;
   height: 2.5rem;
-  margin-right: 1rem;
-  margin-left: -2.5rem;
-
   text-align: left;
-  padding-left: 0.3rem;
   font-size: 1.1rem;
+  padding-left: 0.5rem;
 }
 #input::placeholder {
   font-size: 1.1rem;
+  padding-left: 0.2rem;
 }
 
 .addBtn {
-  width: 4rem;
+  width: 5rem;
   height: 2.5rem;
-  font-weight: bold;
+  font-weight: 550;
   font-size: 1.1rem;
-
-  position: absolute;
-  top: 1rem;
   cursor: pointer;
   background-color: #edce6a;
-
   border: none;
   border-radius: 5px;
 }
 
 .item {
+  width: 100%;
+  max-width: 45rem;
   position: relative;
   list-style: none;
-  font-size: 1.2rem;
-
-  width: 35rem;
-  height: 2rem;
+  font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1rem;
-  margin-left: 2px;
+  padding: 0.8rem;
 
   margin-top: 1rem;
-
-  background-color: #38b000;
+  background-color: #59bc2b;
   border-radius: 5px;
   font-weight: 500;
-
+  overflow: hidden;
   color: rgb(0, 0, 0);
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 #placeholder-text {
@@ -224,529 +217,29 @@ nav div:hover {
   color: black;
 }
 
-@media (max-width: 414px) {
-  body {
-    overflow-x: hidden;
-  }
+@media (max-width: 720px) {
   .main-container {
-    margin-top: -2rem;
-    max-width: 414px;
     border: none;
   }
-  header {
-    width: 25.9rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 24rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 18rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 22.5rem;
-    height: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-/*  DONE ✅ */
-@media (max-width: 412px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 412px;
-    border: none;
-  }
-  header {
-    width: 24rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 24rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 18rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 22.5rem;
-    height: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
 }
 
-/* DONE ✅ */
-@media (max-width: 390px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 390px;
-  }
-  header {
-    width: 25rem;
-    margin-top: 0;
-  }
+@media (max-width: 700px) {
   .main {
-    width: 23rem;
-    position: relative;
-    padding-top: 0.5rem;
+    width: 99%;
+    padding: 0.8rem;
+    padding-bottom: 2rem;
   }
   #input {
-    width: 17rem;
-  }
-  .item {
-    width: 21.5rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .main-container {
-    margin-top: -2rem;
-    max-width: 380px;
-  }
-  header {
-    width: 26rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 22.5rem;
-    position: relative;
-    padding-top: 0.5rem;
+    height: 2rem;
+    width: 80%;
   }
 
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 16.5rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
   .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
+    height: 2rem;
+    width: 18%;
   }
 
   .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 21rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-
-/* DONE ✅  */
-@media (max-width: 375px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 375px;
-  }
-  header {
-    width: 23.5rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 22.5rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 16.5rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 21rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-/* DONE ✅ */
-@media (max-width: 360px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 360px;
-  }
-  header {
-    width: 22.5rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 21.5rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 15.5rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.38rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 20rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.7;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-
-@media (max-width: 344px) {
-  .main-container {
-    margin-top: -2rem;
-  }
-  header {
-    width: 22rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 20.5rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 14.6rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 19rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
-  }
-}
-
-@media (max-width: 540px) {
-  body {
-    overflow-x: hidden;
-  }
-  .main-container {
-    margin-top: -2rem;
-    max-width: 540px;
-    border: none;
-  }
-  header {
-    width: 33.8rem;
-    margin-top: 0;
-  }
-  .main {
-    width: 24rem;
-    position: relative;
-    padding-top: 0.5rem;
-  }
-
-  nav div {
-    margin-top: -0.5rem;
-  }
-  #input {
-    width: 18rem;
-    margin-top: 0.4rem;
-    position: absolute;
-    left: 1.3rem;
-
-    height: 2.4rem;
-  }
-  .addBtn {
-    position: absolute;
-    top: 0.4rem;
-    right: -3.5rem;
-    height: 2.4rem;
-  }
-
-  .item {
-    position: relative;
-    list-style: none;
-    font-size: 1rem;
-
-    width: 22.5rem;
-    height: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0.7rem;
-    margin-left: -1.2rem;
-
-    /* margin-top: 1rem; */
-
-    background-color: #38b000;
-    border-radius: 5px;
-    font-weight: 500;
-
-    color: rgb(0, 0, 0);
-  }
-  .item:first-child {
-    margin-top: 3rem;
-  }
-
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.8;
-    background-color: #92ef35;
-
-    .close {
-      padding-bottom: 3px;
-    }
+    height: 2.2rem;
   }
 }
