@@ -242,4 +242,7 @@ nav div:hover {
   .item {
     height: 2.2rem;
   }
+  .close {
+    padding-bottom: 3px;
+  }
 }
