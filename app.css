@@ -1,26 +1,3 @@
-:root {
-  --background-color: #fffcf2;
-  --text-color: #14213d;
-  --heading-background: #edcd61;
-  --nav-div-hover-background: #f4e3ac;
-  --now-background: #f4e3ac;
-  --completed-background: #588157;
-  --item-background: #d4e09b;
-}
-
-[data-theme="dark"] {
-  --background-color: #14213d;
-  --text-color: #eaead7;
-  --heading-background: #003049;
-  --heading-color: #fff;
-  --fa-moon-color: #fff;
-  --nav-div-hover-background: #264653;
-  --now-background: #264653;
-  --completed-background: #6a6c67;
-  --main-box-shadow: #192c34;
-  --item-background: #989aa8;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -39,6 +16,10 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  user-select: none;
 }
 
 header {
