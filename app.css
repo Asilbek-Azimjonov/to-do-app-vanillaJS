@@ -1,3 +1,26 @@
+:root {
+  --background-color: #fffcf2;
+  --text-color: #14213d;
+  --heading-background: #edcd61;
+  --nav-div-hover-background: #f4e3ac;
+  --now-background: #f4e3ac;
+  --completed-background: #588157;
+  --item-background: #d4e09b;
+}
+
+[data-theme="dark"] {
+  --background-color: #14213d;
+  --text-color: #eaead7;
+  --heading-background: #003049;
+  --heading-color: #fff;
+  --fa-moon-color: #fff;
+  --nav-div-hover-background: #264653;
+  --now-background: #264653;
+  --completed-background: #6a6c67;
+  --main-box-shadow: #192c34;
+  --item-background: #989aa8;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +35,10 @@ body {
   text-align: center;
   align-items: center;
   min-height: 100vh;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -38,9 +65,10 @@ header {
 
 .heading {
   margin-bottom: 1.5rem;
-  background-color: #edce6a;
+  background-color: var(--heading-background);
   font-style: italic;
   position: relative;
+  color: var(--heading-color);
 }
 
 .menu-icon {
@@ -50,7 +78,6 @@ header {
   cursor: pointer;
   height: 2rem;
   width: 2rem;
-  color: black;
 }
 .fa-bars {
   height: 2rem;
@@ -61,14 +88,15 @@ header {
 /*  */
 
 .main {
-  border: 1px solid black;
+  border: 1px solid;
+  border-color: black;
   width: 90%;
   max-width: 40rem;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 5px;
-  background-color: #fffcf2;
   margin-bottom: 2rem;
+  box-shadow: var(--main-box-shadow) 0px 4px 10px;
 }
 
 nav {
@@ -85,7 +113,7 @@ nav div {
 }
 
 nav div:hover {
-  background-color: #f4e3ac;
+  background-color: var(--nav-div-hover-background);
 }
 
 .container {
@@ -106,6 +134,8 @@ nav div:hover {
   text-align: left;
   font-size: 1.1rem;
   padding-left: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #14213d;
 }
 #input::placeholder {
   font-size: 1.1rem;
@@ -135,7 +165,7 @@ nav div:hover {
   padding: 0.8rem;
 
   margin-top: 1rem;
-  background-color: #59bc2b;
+  background-color: var(--item-background);
   border-radius: 5px;
   font-weight: 500;
   overflow: hidden;
@@ -204,11 +234,11 @@ nav div:focus {
 .completed {
   text-decoration: line-through;
   opacity: 0.8;
-  background-color: #73e006;
+  background-color: var(--completed-background);
 }
 
 .now {
-  background-color: #edce6a;
+  background-color: var(--now-background);
 }
 
 .checkbox {

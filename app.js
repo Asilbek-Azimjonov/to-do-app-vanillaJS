@@ -1,59 +1,6 @@
-const all = JSON.parse(localStorage.getItem("all")) || [
-  {
-    id: 1,
-    completed: true,
-    text: "Get up earlier",
-  },
-  {
-    id: 2,
-    completed: false,
-    text: "Do morning exercise",
-  },
-  {
-    id: 3,
-    completed: false,
-    text: "Eat fruits or vegetables",
-  },
-  {
-    id: 4,
-    completed: true,
-    text: "Reading book for 20 minutes",
-  },
-  {
-    id: 5,
-    completed: false,
-    text: "Get to the deep work!",
-  },
-  {
-    id: 6,
-    completed: false,
-    text: "Have lunch, eat less",
-  },
-  {
-    id: 7,
-    completed: false,
-    text: "Go for a walk or gym",
-  },
-  {
-    id: 8,
-    completed: false,
-    text: "Start deep work again",
-  },
-  {
-    id: 9,
-    completed: false,
-    text: "Have dinner",
-  },
-  {
-    id: 10,
-    completed: false,
-    text: "Go to bed earlier",
-  },
-];
+const all = JSON.parse(localStorage.getItem("all"));
 
 localStorage.setItem("all", JSON.stringify(all));
-
-// const savedAll = JSON.parse(localStorage.getItem("all"));
 
 const items = document.querySelector(".items");
 const addBtn = document.querySelector(".addBtn");
@@ -65,11 +12,6 @@ const allTasksTab = document.querySelector(".all");
 const activeItemsTab = document.querySelector(".active");
 const completedItemsTab = document.querySelector(".completed-items");
 const navItems = document.querySelectorAll("nav div");
-
-// Redundant code
-// function setActiveTab(tabName) {
-//   localStorage.setItem("activeTab", tabName);
-// }
 
 function setActiveTab(tabName) {
   localStorage.setItem("activeTab", tabName);
@@ -99,7 +41,7 @@ completedItemsTab.addEventListener("click", () => {
   displayCompletedTasks();
 });
 
-// ✅ Restore last active tab on page load
+// Restore last active tab on page load
 window.addEventListener("load", () => {
   const lastTab = localStorage.getItem("activeTab") || "all";
 
@@ -120,7 +62,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// displaying all tasks done ✅
+// displaying all tasks
 function displayAllTasks() {
   items.innerHTML = "";
   all.forEach((item) => {
@@ -289,20 +231,6 @@ function addItem() {
   displayAllTasks();
 }
 
-// Function to set active tab in localStorage
-// function setActiveTab(tabName) {
-//   localStorage.setItem("activeTab", tabName);
-// }
-
-// // Event listener for clicking on nav items
-// navItems.forEach((item) => {
-//   item.addEventListener("click", function () {
-//     navItems.forEach((i) => i.classList.remove("now"));
-//     this.classList.add("now");
-//     setActiveTab(this.dataset.tab);
-//   });
-// });
-
 // ✅ Restore last active tab on page load
 window.addEventListener("load", () => {
   const lastTab = localStorage.getItem("activeTab") || "all"; // Default to "all"
@@ -354,3 +282,36 @@ input.addEventListener("input", function () {
     alert("Maximum 30 characters allowed!");
   }
 });
+
+//  opening menu
+const menuIcon = document.querySelector(".menu-icon");
+
+menuIcon.addEventListener("click", function () {
+  console.log("clicked");
+});
+
+// light dark mode
+const lightIcon = document.querySelector(".light-icon");
+
+const bodyElement = document.body;
+const iconElement = lightIcon.querySelector("i");
+lightIcon.addEventListener("click", () => {
+  if (bodyElement.getAttribute("data-theme") === "dark") {
+    bodyElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+    iconElement.classList.remove("fa-moon");
+    iconElement.classList.add("fa-sun");
+  } else {
+    bodyElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    iconElement.classList.remove("fa-sun");
+    iconElement.classList.add("fa-moon");
+  }
+});
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  bodyElement.setAttribute("data-theme", "dark");
+  iconElement.classList.remove("fa-sun");
+  iconElement.classList.add("fa-moon");
+}

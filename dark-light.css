@@ -1,0 +1,18 @@
+.fa-sun {
+  color: var(--fa-sun-color);
+  font-size: 1.1rem;
+}
+
+.light-icon {
+  position: absolute;
+  right: 3rem;
+  top: 1rem;
+  cursor: pointer;
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.fa-moon {
+  color: var(--fa-moon-color);
+  font-size: 1.1rem;
+}
