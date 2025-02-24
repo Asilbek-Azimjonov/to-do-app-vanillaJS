@@ -60,6 +60,14 @@ header {
   height: 2rem;
   width: 2rem;
 }
+
+.menu-icon:active,
+.menu-icon:focus,
+.light-icon:active,
+.light-icon:focus {
+  color: inherit;
+  background-color: transparent;
+}
 .fa-bars {
   height: 2rem;
   width: 2rem;
