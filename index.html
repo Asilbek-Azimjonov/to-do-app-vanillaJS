@@ -10,6 +10,9 @@
     <title>Simply Todo App</title>
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="dark-light.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&family=Manrope:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -23,7 +26,7 @@
         </div>
 
         <header class="heading">
-            <div id="sideMenu" class="side-menu">
+            <!-- <div id="sideMenu" class="side-menu">
                 <span class="close-btn">&times;</span>
                 <ul>
                     <li class="lang">Language <span class="chevron">▼</span> <span id="currentLanguage">EN</span>
@@ -33,6 +36,38 @@
                         </ul>
                     </li>
                 </ul>
+            </div> -->
+
+            <div id="sideMenu" class="side-menu">
+                <!-- Close Button -->
+                <span class="close-btn">&times;</span>
+
+                <!-- Menu Items -->
+                <ul>
+                    <li class="lang">Language <span class="chevron">▼</span> <span id="currentLanguage">EN</span>
+                        <ul class="lang-dropdown">
+                            <li class="eng">ENG</li>
+                            <li class="uzb">UZB</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Footer Section -->
+                <footer class="sidebar-footer">
+                    <div class="credential">
+                        <h3>Azimjonov Asilbek</h3>
+                        <p>Junior Web Dev</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Asilbek-Azimjonov" target="_blank">
+                            <i class="fab fa-github"></i> <!-- GitHub Icon -->
+                        </a>
+                        <a href="https://t.me/official_for_me" target="_blank">
+                            <i class="fab fa-telegram"></i> <!-- Telegram Icon -->
+                        </a>
+                        <!-- Add more icons as needed -->
+                    </div>
+                </footer>
             </div>
             <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
             <h1>To Do List</h1>
