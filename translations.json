@@ -1,0 +1,18 @@
+{
+  "uz": {
+    "title": "Kun Tartibim",
+    "all": "Barchasi",
+    "active": "Bugungi",
+    "completed": "Tugatilgan",
+    "placeholder": "Yangi vazifa kiriting...",
+    "add": "Qo'shish"
+  },
+  "en": {
+    "title": "To Do List",
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "placeholder": "Add a task...",
+    "add": "Add"
+  }
+}

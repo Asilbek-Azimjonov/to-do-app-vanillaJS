@@ -2,20 +2,21 @@
   --background-color: #fffcf2;
   --text-color: #14213d;
   --heading-background: #edcd61;
-  --nav-div-hover-background: #f4e3ac;
-  --now-background: #f4e3ac;
+  --nav-div-hover-background: #fae08b;
+  --now-background: #fae08b;
   --completed-background: #588157;
   --item-background: #d4e09b;
 }
 
 [data-theme="dark"] {
-  --background-color: #14213d;
+  /* --background-color: #14213d; */
+  --background-color: #1a1a2e;
   --text-color: #eaead7;
-  --heading-background: #003049;
+  --heading-background: #121212;
   --heading-color: #fff;
   --fa-moon-color: #fff;
-  --nav-div-hover-background: #264653;
-  --now-background: #264653;
+  --nav-div-hover-background: #0056b3;
+  --now-background: #007bff;
   --completed-background: #6a6c67;
   --main-box-shadow: #192c34;
   --item-background: #989aa8;

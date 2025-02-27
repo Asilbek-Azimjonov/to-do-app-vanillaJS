@@ -15,15 +15,33 @@
 <body>
     <div class="main-container">
 
+        <div id="customAlert" class="custom-alert">
+            <div class="alert-content">
+                <p id="alertMessage"></p>
+                <button id="closeAlert">OK</button>
+            </div>
+        </div>
+
         <header class="heading">
+            <div id="sideMenu" class="side-menu">
+                <span class="close-btn">&times;</span>
+                <ul>
+                    <li class="lang">Language <span class="chevron">▼</span> <span id="currentLanguage">EN</span>
+                        <ul class="lang-dropdown">
+                            <li class="eng">ENG</li>
+                            <li class="uzb">UZB</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
             <h1>To Do List</h1>
             <span class="light-icon"><i class="fa-solid fa-sun"></i></span>
         </header>
         <nav>
-            <div class="all" data-tab="all">All</div>
-            <div class="active" data-tab="active">Active</div>
-            <div class="completed-items" data-tab="completed-items">Completed</div>
+            <div class="all tab" data-tab="all">All</div>
+            <div class="active tab" data-tab="active">Active</div>
+            <div class="completed-items tab" data-tab="completed-items">Completed</div>
         </nav>
         <main class="main">
             <div class="container">
